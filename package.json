@@ -1,0 +1,77 @@
+{
+  "name": "vscode-ast",
+  "version": "1.0.9",
+  "description": "Show TypeScript AST in VSCode",
+  "main": "./out/extension.js",
+  "scripts": {
+    "build": "rm -rf out && tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thzt/vscode-ast"
+  },
+  "keywords": [
+    "AST",
+    "TypeScript",
+    "VSCode"
+  ],
+  "author": "thzt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thzt/vscode-ast/issues"
+  },
+  "homepage": "https://github.com/thzt/vscode-ast#readme",
+  "dependencies": {
+    "ignore": "^5.1.8",
+    "jsonc-parser": "^2.3.0",
+    "recursive-readdir": "^2.2.2",
+    "typescript": "^3.9.6"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.0",
+    "@types/vscode": "^1.44.0"
+  },
+  "publisher": "thzt",
+  "displayName": "TypeScript AST",
+  "icon": "resource/icon.png",
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "ast.focus",
+        "title": "Refresh",
+        "icon": {
+          "light": "resource/light/refresh.svg",
+          "dark": "resource/dark/refresh.svg"
+        }
+      },
+      {
+        "command": "ast.folding",
+        "title": "Folding"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "ast",
+          "name": "TypeScript AST"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "ast.focus",
+          "when": "view == ast",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
